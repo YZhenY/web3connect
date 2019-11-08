@@ -7,10 +7,10 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Portis from "@portis/web3";
 // @ts-ignore
 // import Squarelink from 'squarelink'
-// import Torus from '@toruslabs/torus-embed'
+import Torus from '@toruslabs/torus-embed'
 // @ts-ignore
 import Fortmatic from "fortmatic";
-import Arkane from "@arkane-network/web3-arkane-provider";
+// import Arkane from "@arkane-network/web3-arkane-provider";
 import Authereum from "authereum";
 import { convertUtf8ToHex } from "@walletconnect/utils";
 import Button from "./components/Button";
@@ -425,12 +425,14 @@ class App extends React.Component<any, any> {
                         key: process.env.REACT_APP_FORTMATIC_KEY
                       }
                     },
-                    arkane: {
-                      package: Arkane,
+                    torus: {
+                      package: Torus,
                       options: {
-                        clientId: process.env.REACT_APP_ARKANE_CLIENT_ID,
-                        environment: "staging"
-                      }
+                        enableLogging: false,
+                        buttonPosition: 'bottom-left',
+                        buildEnv: "production",
+                        showTorusButton: true,
+                      },
                     },
                     authereum: {
                       package: Authereum,
